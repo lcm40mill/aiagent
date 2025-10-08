@@ -30,12 +30,3 @@ def get_file_content(working_directory, file_path):
     
     #If any errors arise from standardlibrary functions, catch them and return an Error string (see the try: except: system used in get_files_info)
     # directory. Fill this file with at least 20,000 character from the lorem ipsum text. See bootdev link for access
-
-    #Modify the tests.py file by removing old function calls and replacing with this function with arguments ("calculator", "lorem.txt")
-    #Make sure the result truncates correctly
-        #Remove the lorem ipsem test call
-        #Add calls:
-            #get_file_content("calculator", "main.py")
-            #get_file_content("calculator", "pkg/calculator.py")
-            #get_file_content("calculator", "/bin/cat") (this should return an error string)
-            #get_file_content("calculator", "pkg/does_not_exist.py") (this should return an error string)
