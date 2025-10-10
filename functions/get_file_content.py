@@ -1,5 +1,6 @@
 import os
 from configs import MAX_CHAR_LIMIT
+from google.genai import types
 
 def get_file_content(working_directory, file_path):
     work_dir_path = os.path.abspath(working_directory)
@@ -30,3 +31,17 @@ def get_file_content(working_directory, file_path):
     
     #If any errors arise from standardlibrary functions, catch them and return an Error string (see the try: except: system used in get_files_info)
     # directory. Fill this file with at least 20,000 character from the lorem ipsum text. See bootdev link for access
+schema_get_file_content = types.FunctionDeclaration(
+    name="get_file_content",
+    description=f"Opens, reads, and returns the contents of a file constrained to the working directory, if the file contains more than {MAX_CHAR_LIMIT} it truncates the return to 10000 characters.",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The file, constrained to the working directory, to open and read contents of.",
+            ),
+        },
+        required=["file_path"]
+    ),
+)
